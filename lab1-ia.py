@@ -7,11 +7,6 @@ def crear_mapa_laberinto(numero_filas, numero_columnas, numero_paredes, numero_e
     for fila in range(0, numero_filas):
         fila_mapa_laberinto = []
         for columna in range(0, numero_columnas):
-#             if (random.randrange(2) == 1 and numero_paredes_generadas < numero_paredes):
-#                 fila_mapa_laberinto.append('#')
-#                 numero_paredes_generadas += 1
-#             else:
-#                 fila_mapa_laberinto.append(' ')
             fila_mapa_laberinto.append('#')
         mapa_laberinto.append(fila_mapa_laberinto)
         
@@ -28,6 +23,7 @@ def crear_mapa_laberinto(numero_filas, numero_columnas, numero_paredes, numero_e
     mapa_laberinto[fila_posicion_actual][columna_posicion_actual] = 'O'
 
     while numero_espacios_generados < numero_espacios:
+        #si arriba esta vacio 
         direccion = random.randrange(4)
         if direccion == 0 and fila_posicion_actual > 0:
             fila_posicion_actual -= 1

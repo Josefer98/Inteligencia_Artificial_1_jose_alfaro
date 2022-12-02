@@ -1,4 +1,4 @@
-from Nodos import Nodo
+import Nodo
 def busqueda_BPA_solucion(estado_inicial, solucion):
     resuelto = False
     nodos_visitados = []

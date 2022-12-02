@@ -54,14 +54,20 @@ def crear_mapa_laberinto(numero_filas, numero_columnas, numero_paredes, numero_e
     columna_posicion_actual = random.randrange(1,numero_columnas-1)
     mapa_laberinto[fila_posicion_actual][columna_posicion_actual] = ' '
     numero_espacios_generados += 1
+    #mientras los espacios generados sea menores a el numespacios
     while numero_espacios_generados < numero_espacios:
+        #direccion aleatoria de 4 numeros   
         direccion = random.randrange(4)
+        #arriba
         if direccion == 0 and fila_posicion_actual > 0:  
             fila_posicion_actual -= 1
+        #abajo
         elif direccion == 1 and fila_posicion_actual < numero_filas - 1:
             fila_posicion_actual += 1
+        #izquierda
         elif direccion == 2 and columna_posicion_actual > 0:
             columna_posicion_actual -= 1
+        #derecha
         else:
             if columna_posicion_actual < numero_columnas - 1 :
                 columna_posicion_actual += 1
@@ -83,24 +89,27 @@ def mover(laberinto,numero_columnas,numero_filas, posiciones,comida):
 
   movimiento=0
   juego=True
+  #mientras las movimietos sean menores a la comida
   while movimiento<=comida:
     #time.sleep(1.2)
+    #mostrar
     for fila_mapa_laberinto in laberinto:
       print(fila_mapa_laberinto)
     print(posiciones)
-    
+    #asiganamos donde los valores x y y a j e i 
     for i in range(0,numero_filas):
       for j in range(0,numero_columnas):
         if laberinto[i][j]== 'G':
           fila_X=j;
           fila_Y=i;
+    #si es difernte de de vacio entoces ya esta atrapado 
     if laberinto[fila_Y-1][fila_X] != ' ' and laberinto[fila_Y+1][fila_X] != ' ' and laberinto[fila_Y][fila_X-1] != ' ' and laberinto[fila_Y][fila_X+1] != ' ' :  
       posiciones=[]
       laberinto=reiniciar_tabla(laberinto,numero_columnas,numero_filas)
      
 
     comida_premion , posiciones=comida_rica(fila_X, fila_Y, laberinto ,posiciones)
-
+   #condicion para encontrar la comida 
     if comida_premion:
       direccion = random.randrange(3)
       #print(direccion,"dir")
