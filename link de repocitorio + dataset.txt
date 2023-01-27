@@ -1,0 +1,2 @@
+https://github.com/Josefer98/Inteligencia_Artificial_1_jose_alfaro
+data set utilizado: 	https://www.kaggle.com/datasets/mssmartypants/paris-housing-classification
